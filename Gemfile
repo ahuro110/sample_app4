@@ -63,3 +63,7 @@ gem 'jquery-rails', '4.3.1'
 gem 'minitest', group: :test
 gem 'minitest-reporters', group: :test
 gem 'rails-controller-testing'
+
+gem 'faker'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'

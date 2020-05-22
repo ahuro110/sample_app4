@@ -19,13 +19,14 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
   end
+
   def create
     @user = User.new(user_params)
     if @user.save
-      log_in @user
-      params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-      flash[:success] = "Welcome to the Sample App!"
-      redirect_back_or user
+      @user.send_activation_email
+      UserMailer.account_activation(@user).deliver_now
+      flash[:info] = "Please check your email to activate your account."
+      redirect_to root_url
     else
       render "new"
     end

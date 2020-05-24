@@ -65,5 +65,12 @@ gem 'minitest-reporters', group: :test
 gem 'rails-controller-testing'
 
 gem 'faker'
+gem 'carrierwave'
+gem 'mini_magick'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
+
+group :production do
+  gem 'pg'
+  gem 'fog'
+end
